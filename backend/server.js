@@ -42,7 +42,7 @@ app.post('/api/predict', upload.single('image'), (req, res) => {
         mode: 'text',
         pythonOptions: ['-u'], // get print results in real-time
         scriptPath: __dirname,
-        args: [absoluteImagePath]
+        args: [absoluteImagePath, req.file.originalname]
     };
 
     PythonShell.run('predict_api.py', options).then(results => {

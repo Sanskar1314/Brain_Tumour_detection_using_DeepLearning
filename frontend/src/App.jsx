@@ -25,8 +25,8 @@ function App() {
     formData.append('image', file);
 
     try {
-      // Assuming backend is running on port 5001
-      const response = await axios.post('http://localhost:5001/api/predict', formData, {
+      // Point to /api/predict (supported by local proxy and Vercel serverless)
+      const response = await axios.post('/api/predict', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
